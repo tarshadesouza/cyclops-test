@@ -1,0 +1,4 @@
+# Autofix mode: CyclOps's fix loop commits fixes DIRECTLY to this PR's head
+# branch (demo of Phase 6 autofixMode). See docs/configuration.md in the app.
+autofixMode: autofix
+confidenceThreshold: 0.85

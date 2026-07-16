@@ -1,10 +1,10 @@
 name: CI
 
+# Push-triggered so the workflow (with the compact ESLint formatter) runs from
+# THIS branch — including when CyclOps's autofix loop pushes a fix back to it.
 on:
   push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+    branches: [demo-lint-loop]
 
 jobs:
   lint:
@@ -15,7 +15,7 @@ jobs:
         with:
           node-version: 22
       - run: npm install
-      - run: npm run lint
+      - run: npx eslint src --format ./eslint-compact.cjs
 
   test:
     runs-on: ubuntu-latest
