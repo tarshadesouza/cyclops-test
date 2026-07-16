@@ -7,3 +7,6 @@ export function add(a, b) {
 export function multiply(a, b) {
   return a * b
 }
+
+// extra lint violations for the demo PR
+const unused = 'oops'
