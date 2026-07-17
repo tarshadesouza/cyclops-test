@@ -1,0 +1,28 @@
+# Cyclops agentic autofix — client stub.
+#
+# Added ONCE to this repo's default branch. It never changes: it just forwards
+# the whole CyclOps dispatch payload, verbatim, to the reusable workflow that
+# lives in the Cyclops repo. All the real logic (and the payload contract) lives
+# there, so Cyclops can evolve it without ever touching this file.
+#
+# repository_dispatch (not pull_request) so the ANTHROPIC_API_KEY secret is
+# never exposed to fork PRs — only Cyclops (via the GitHub App) can trigger it.
+#
+# NOTE: pinned to the dev branch @phase7-agentic-autofix while Phase 7 is in
+# progress. Switch to @v1 once the reusable workflow is released.
+name: Cyclops Agent
+
+on:
+  repository_dispatch:
+    types: [cyclops-agent]
+
+permissions:
+  contents: write   # push the throwaway session ref
+  actions: read     # let the agent inspect the failed run's logs
+
+jobs:
+  fix:
+    uses: tarshadesouza/cyclops/.github/workflows/agent.yml@phase7-agentic-autofix
+    secrets: inherit
+    with:
+      payload: ${{ toJSON(github.event.client_payload) }}
