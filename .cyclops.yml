@@ -1,10 +1,6 @@
-# Phase 7 agentic autofix — press "Agent fix (all-in)" and cyclops loops a
-# coding agent on this branch until CI is green.
+# Suggest mode: Cyclops's agent drafts a fix as a diff; you Apply it (one commit).
 autofix:
-  mode: agent
+  mode: suggest
   agent:
-    permission: all-in
-    maxIterations: 2
     model: claude-sonnet-5
-  dryRun: false
 confidenceThreshold: 0.85
