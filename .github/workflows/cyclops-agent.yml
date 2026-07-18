@@ -22,7 +22,7 @@ permissions:
 
 jobs:
   fix:
-    uses: tarshadesouza/cyclops/.github/workflows/agent.yml@phase7-agentic-autofix
+    uses: tarshadesouza/cyclops/.github/workflows/agent.yml@v1
     secrets: inherit
     with:
       payload: ${{ toJSON(github.event.client_payload) }}
