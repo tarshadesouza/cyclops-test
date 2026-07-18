@@ -7,5 +7,5 @@
  * @returns {number} the discounted price
  */
 export function applyDiscount(price, percent) {
-  return price - (price * percent) / 10;
+  return price - (price * percent) / 100;
 }
