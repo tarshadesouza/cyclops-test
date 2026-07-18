@@ -1,10 +1,8 @@
-# Phase 7 agentic autofix — press "Agent fix (all-in)" and cyclops loops a
-# coding agent on this branch until CI is green.
+# Autofix (safe): agent loops on a NEW cyclops/fix/* branch and opens a green PR.
 autofix:
   mode: agent
   agent:
-    permission: all-in
+    permission: safe
     maxIterations: 2
     model: claude-sonnet-5
-  dryRun: false
 confidenceThreshold: 0.85
