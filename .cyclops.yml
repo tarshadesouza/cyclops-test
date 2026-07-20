@@ -1,0 +1,7 @@
+autofix:
+  mode: agent
+  agent:
+    permission: all-in
+    maxIterations: 2
+    model: claude-sonnet-5
+confidenceThreshold: 0.85
